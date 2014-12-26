@@ -1,0 +1,38 @@
+---
+layout: post
+title: SRP 单一职责原则
+---
+
+####定义
+>**SPR：单一职责原则**  
+一个类应该只有一个发生变化的原因
+
+>**SRP: The Single Responsibility Principle**  
+There should never be more than one reason for a class to change.
+
+- - -
+
+####阐述
+SRP基于内聚性([cohension][])原则，内聚性定义是:  **`一个模块组成元素之间的功能相关性。`** 
+在SRP定义的范畴里，模块可以简单理解为类层级(class level)的模块，SRP只在类层级起作用。
+
+职责：变化的原因(a reason for change)，每一个职责都是变化的一个轴线。当需求变化时，该变化会反应为职责的变化。
+如果你想到多与一个动机去改变一个类，那么就可以认为该类多于一个职责，那么这个时候就应该考虑分离该类中耦合的职责。仅当变化发生的时候，变化的轴线才有实际意义。如果没有变化，就不应该应用SRP。
+
+- - -
+
+####小结
+1. 我通常以功能组的方式去考虑职责，这往往是不正确的。
+2. 需求变化往往无法预测，需求变化后可能导致原先设计好的类的职责不再单一，这难以避免，分离职责是程序开发中长久的事情。
+3. 基于第二点，推论是只有变化发生的时候，才考虑应用SRP，但是有些明显的职责，大方向上的，界面，逻辑，持久化，数据等一定在设计之初就分离开来。界面逻辑和业务逻辑（事务逻辑？）混淆是我这两年见过最常见的错误。
+
+- - -
+
+####参考
+敏捷软件开发 Robert C. Martin [SRP](http://www.objectmentor.com/resources/articles/srp.pdf)
+
+
+
+
+
+[cohension]:http://en.wikipedia.org/wiki/Cohesion_(computer_science)
