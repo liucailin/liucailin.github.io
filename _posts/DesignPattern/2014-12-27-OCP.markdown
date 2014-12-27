@@ -1,0 +1,49 @@
+---
+layout: post
+title: OCP 开放－封闭原则
+---
+
+####定义
+>**OCP 开放－封闭原则**  
+软件实体（类、模块、函数等）应该是可以扩展的，但是不可修改。
+
+>**OCP The Open/Closed Principle**  
+Software entities (class, modules, fuctions, etc.) should be open for extension but closed for modification
+
+- - -
+
+####阐述
+OCP两个主要特征
+
+1. 对于扩展时开放的（open for extension）
+    这意味着模块的行为时可以扩展的。当应用的需求改变时，我们可以对模块进行扩展，使其具有满足那些改变的新行为。换句话说，我们可以改变模块的功能。
+2. 对于修改时封闭的（closed for modification）
+    对模块的行为进行扩展时，不必改动模块的源代码或者二进制代码。模块的二进制可执行版本，无论是可链接的库、dll或者.exe文件都无需改动。
+
+`OCP关键是抽象（abstraction）`
+
+在OOPL中，能创建出固定确能够描述一组任意个可能行为抽象体。（abstraction that are fixed and yet represent an unbounded group of possible behaviors）。这个抽象体在程序语言中就是`抽象类`，一组任意个可能的行为则可以表现为可能的`派生类`。
+
+模块对抽象体操作，依赖于抽象体，因为抽象体是固定的，所以可以说该模块对于更改时封闭的，同时，通过从这个抽象体派生，可以扩展该模块的行为。
+
+
+1. Strategy 
+    例: Client类需要实现一些功能，并且希望改功能对于修改时封闭的（废话），而`封闭的基础是抽象`，所以可以创建一个抽象体ClientInterface去描绘哪些功能。Client依赖于ClientInteface，需要扩展的时候则派生ClientInterface即可。
+两种主要实现方式
+
+2. Template method
+    与Strategy模式的不同之处是抽象体与Client同一身。
+- - -
+
+####小结
+
+- - -
+
+####参考
+
+[［美］Robert C. Martin 敏捷软件开发（原则、模式与实践）][0]
+
+[0]:http://www.objectmentor.com/resources/articles/ocp.pdf
+
+
+
