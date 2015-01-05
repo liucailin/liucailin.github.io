@@ -38,7 +38,11 @@ title: 面向对象设计的原则
 * **SAP  稳定抽象原则**  
 	包的抽象程度与其稳定程度一致。
 
-  
+- - -
 
+####参考
 
-
+[PrinciplesOfOod](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod)   
+[solid](http://code.tutsplus.com/series/the-solid-principles--cms-634)  
+[oodesign](http://www.oodesign.com/)  
+[c2](http://c2.com/cgi/wiki?PrinciplesOfObjectOrientedDesign)  
