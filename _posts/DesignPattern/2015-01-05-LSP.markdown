@@ -1,0 +1,64 @@
+---
+layout: post
+title: LSP Liskov替换原则
+---
+
+####定义
+
+>**Liskov替换原则**  
+子类型（subtype）必须能够替换掉它们的基类型（base type）。  
+若对类型S的每一个对象o1，都存在一个类型T的对象o2，使得在所有针对T编写的程序P中，用o1替换o2后，程序P的行为功能不变，则S是T的子类型。
+
+>**The Liskov Substitution Principle**
+Subtypes must be substituable for their base types. 
+Fuctions that use pointers or references to base classes must be able to use objects of derived classes without konwing it.  
+If for each object o1 of type S there is an object o2 of  type T such thatfor all programs P defined in terms of T, the behavior of P is unchanged when o1 is substituted for o2 then  s is a subtype of T.
+
+- - -
+
+####阐述
+
+OCP背后的主要机制是抽象和多态。在静态语言中，支持抽象和多态的关键机制之一是继承。  
+LSP就是关于继承的原则，探讨最佳的类层次。  
+一般情况下，出现类型检查，就意味着违反了LSP，同时可能潜在的违反了OCP。  
+LSP让我们得出一个非常重要的结论：一个模型，如果孤立的看，并不是真正意义上的有效性。模型的有效性职能通过它的客户程序来表现。  
+LSP指出，OOD中IS－A关系是酒`行为方式（behavior）`而言的，行为方式是可以进行`合理假设（resonable assumed）`的，是客户程序所依赖的。  
+
+#####基于契约设计
+
+基于契约设计（Design By Contract, DBC）可以是这些`合理假设`明确化，从而支持了LSP。  
+契约是通过为每个方法声明前置条件（precondition）和后置条件（postcondition）来指定的。要是一个方法可以执行，前置条件必须要为真。执行完毕后，该方法要保证后置条件为真。在LSP中，派生类的规则是，`只能使用相等或更弱的前置条件来替换原始的前置条件，只能使用相等或更强的后置条件替换原始的后置条件。`  
+可以在单元测试中指定契约。
+
+- - -
+
+####方法
+提取公共部分的方法代替继承（pull-up method）  
+Vistor Pattern  
+
+- - -
+
+####违反
+
+类型检查  
+派生类中存在退化函数
+
+- - -
+
+####小结
+
+OCP是OOD很多说法的核心。LSP是OCP成为可能的主要原则之一。  
+术语IS－A含义过于宽泛以至于不能作为子类型的定义。子类型的正确定义是可替换的。这里的可替换可以通过显式或隐式的契约定义。
+
+- - -
+
+####参考
+
+[［美］Robert C. Martin 敏捷软件开发（原则、模式与实践）][0]
+
+[0]:http://www.objectmentor.com/resources/articles/lsp.pdf
+
+
+[LSP vs OCP / Liskov Substitution VS Open Close][1]
+
+[1]:http://programmers.stackexchange.com/questions/178488/lsp-vs-ocp-liskov-substitution-vs-open-close/178515#178515
