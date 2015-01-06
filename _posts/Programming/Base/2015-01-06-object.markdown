@@ -1,0 +1,14 @@
+---
+layout: post
+title: Object
+---
+
+In Computer Science, an object is a **location in memory** having a **value** and possibly referenced by an **identifier**.
+
+An object can be a variable, a data structure, or a function.
+
+In class-based object-oriented programming paradigm, object refers to particular **instance** of a class where the object can be a combination of variables, functions, and data structures.
+
+An object has state (data) and behavior (code).
+
+
