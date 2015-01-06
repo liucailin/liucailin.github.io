@@ -19,3 +19,5 @@ If you want to change it you have to consciously do it by creating a new instanc
 
 [Create immutable object](http://tipsandtricks.runicsoft.com/CSharp/Immutables.html)
 [Eric Lippert's blog about immutable](http://blogs.msdn.com/b/ericlippert/archive/tags/immutability/default.aspx?PageIndex=2)
+
+[Why are System.Drawing Rectangle, Point, Size etc mutable structs and not classes?](http://stackoverflow.com/questions/14192527/why-are-system-drawing-rectangle-point-size-etc-mutable-structs-and-not-classe?lq=1)
