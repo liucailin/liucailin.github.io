@@ -103,12 +103,12 @@ $$I_{ldiff} = K_dI_l\cos\theta$$
 
 也就是
 
-$$I_{ldiff} = K_dI_l$(\vec{N} \cdot \vec{L})$$
+$$I_{ldiff} = K_dI_l(\vec{N} \cdot \vec{L})$$
 
 $\vec{N}$是顶点的单位法向量，$\vec{L}$是**顶点指向光源的单位向量**
 
 综合下来
 
-$$I_{diff} = I_{ambdiff} + I_{ldiff} = k_dI_a + K_dI_l$(\vec{N} \cdot \vec{L})$$
+$$I_{diff} = I_{ambdiff} + I_{ldiff} = k_dI_a + K_dI_l(\vec{N} \cdot \vec{L})$$
 
 
