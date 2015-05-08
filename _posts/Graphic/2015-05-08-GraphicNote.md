@@ -1,9 +1,7 @@
 ---
 layout: post
-title: immutable and mutable
+title: 计算机图形学读书笔记
 ---
-
-# 计算机图形学读书笔记 #
 
 阅读书籍
 
