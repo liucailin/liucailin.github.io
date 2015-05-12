@@ -93,9 +93,9 @@ in， out， inout, 语义绑定是两个程序之间的桥梁，相当于指定
 
 对于仅暴露在环境光下的朗伯反射体，某点的漫反射公式的光强
 
-$$I_{ambdiff} = k_dI_a$$
+$$I_{ambdiff} = k_aI_a$$
 
-其中，$I_a$表示环境光强度，$k_d (0 < k_d < 1)$ 为材质对环境光的反射系数， $I_{ambdiff}$是漫发射体与环境光交互反射的光强。
+其中，$I_a$表示环境光强度，$k_a$ 为材质对环境光的反射系数， $I_{ambdiff}$是漫发射体与环境光交互反射的光强。
 
 Lambert定律：当方向光照射到朗伯反射体上是，漫反射光的光强与入射光的方向和入射光点表面法向量夹角的成正比：
 
@@ -105,10 +105,128 @@ $$I_{ldiff} = k_dI_l\cos\theta$$
 
 $$I_{ldiff} = k_dI_l(\vec{N} \cdot \vec{L})$$
 
-$\vec{N}$是顶点的单位法向量，$\vec{L}$是**顶点指向光源的单位向量**
+$\vec{N}$是顶点的单位法向量，$\vec{L}$是**顶点指向光源的单位向量**,$k_d$是**漫发射系数，也就是材质的漫发射颜色？**
 
 综合下来
 
 $$I_{diff} = I_{ambdiff} + I_{ldiff} = k_dI_a + k_dI_l(\vec{N} \cdot \vec{L})$$
 
+#### 镜面发射与Phong模型 ####
+
+
+$$I_{spec} = k_sI_l(\vec{V} \cdot \vec{R})^{n_s}$$
+
+$k_s$为材质的镜面反射系数，$n_s$是高光指数，V表示从顶点到视点的观察方向，R代表反射光方向。
+
+高光指数反映了物体表面的光泽程度。越大反射光越集中。
+
+$$\vec{R} + \vec{L} = (2 \vec{N} \cdot \vec{L}) \vec{N}$$
+
+#### Blinn-Phong光照模型 ####
+
+在OpenGL和Direct3D渲染管线中，Blinn-Phong是默认的渲染模型。速度比Phong模型快。
+
+$$I_{spec} = k_sI_l(\vec{N} \cdot \vec{H})^{n_s}$$
+
+$$\vec{H} = normalize(\vec{L} + \vec{V})$$
+
+#### cg基本光照模型代码 ####
+
+书上的解释有点概念混淆，详细请看代码
+
+	void ComputingLight(float4 position  : POSITION,
+
+              float3 normal    : NORMAL,
+
+              out float4 oPosition : POSITION,
+
+              out float4 color     : COLOR,
+
+              uniform float4x4 modelViewProj,
+
+              uniform float3 lightPosition,
+
+              uniform float3 eyePosition,
+
+			  /// LIGHT PARAMETERS
+
+              uniform float3 globalAmbient,
+
+              uniform float3 lightColor,
+
+
+			  /// MATERIAL PARAMETERS
+
+			  // Emissive reflectance
+              uniform float3 Ke,
+
+			  // Ambient reflectance
+              uniform float3 Ka,
+
+			  // Diffuse reflectance
+
+              uniform float3 Kd,
+
+			  // Specular reflectance
+              uniform float3 Ks,
+
+              uniform float  shininess)
+
+
+
+	{
+	
+		  oPosition = mul(modelViewProj, position);
+		
+		
+		
+		  float3 P = position.xyz;
+		
+		  float3 N = normal;
+		
+		
+		
+		  // Compute the emissive term
+		
+		  float3 emissive = Ke;
+		
+		
+		
+		  // Compute the ambient term
+		
+		  float3 ambient = Ka * globalAmbient;
+		
+		
+		
+		  // Compute the diffuse term
+		
+		  float3 L = normalize(lightPosition - P);
+		
+		  float diffuseLight = max(dot(N, L), 0);
+		
+		  float3 diffuse = Kd * lightColor * diffuseLight;
+		
+		
+		
+		  // Compute the specular term
+		
+		  float3 V = normalize(eyePosition - P);
+		
+		  float3 H = normalize(L + V);
+		
+		  float specularLight = pow(max(dot(N, H), 0),
+		
+		                            shininess);
+		
+		  if (diffuseLight <= 0) specularLight = 0;
+		
+		  float3 specular = Ks * lightColor * specularLight;
+		
+		
+		
+		  color.xyz = emissive + ambient + diffuse + specular;
+		
+		  color.w = 1;
+	
+	}
 
