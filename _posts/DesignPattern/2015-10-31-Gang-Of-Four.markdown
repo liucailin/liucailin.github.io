@@ -10,11 +10,11 @@ An Adapter helps two incompatible interfaces to work together. This is read word
 
 ### Object Adapter ###
 
-![object adapter](./object-adapter.png)
+![object adapter](/assets/object-adapter.png)
 
 ### Class Adapter ###
 
-![class adapter](./class-adapter.png)
+![class adapter](/assets/class-adapter.png)
 
 ## Facade Pattern ##
 
