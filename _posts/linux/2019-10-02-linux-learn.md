@@ -6,15 +6,25 @@ title: Linux Learn
 ## 背景知识
 
 - linux版本
-    - 内核版本
-        https://www.kernel.org，主版本号、次版本号、末版本号，此版本号为奇数为开发版，偶数为稳定版
-        
-    - 发行版本
-        - RedHat Enterprise Linux
-        - Fedora
-        - CentOS
-        - Debian
-        - Ubuntu
+
+    - 狭义上指由Linux之父**Linus Torvalds**发起的内核
+        - [官网](https://www.kernel.org)
+        - [GitHub](https://github.com/torvalds/linux)
+        - 内核版本号分为三个部分，分别是主版本号、次版本号、末版本号，此版本号为奇数为开发版，偶数为稳定版
+
+    - 广义上指各种linux发行版本
+
+        - 基于Dpkg(Debian系)
+            - Debian
+            - Ubuntu
+
+        - 基于RPM(Red Hat系)
+            - RedHat Enterprise Linux
+            - Fedora
+            - CentOS
+
+        - 其他
+
 
 ## 系统操作
 
