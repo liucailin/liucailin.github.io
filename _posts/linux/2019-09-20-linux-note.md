@@ -18,3 +18,11 @@ title: Linux Note
 - yum list xxx 查找是否可以安装xxx
 - yum search xxx 搜索xxx安装包
 - yum list installed 列出已安装的
+
+## 文本内容查阅
+- cat - View the whole file
+- nl - 和cat类型，带行数输出
+- head - View the top few lines of a file
+- tail - View the bottom few lines of a file
+- more - View the whole file, one screenful at a time
+- less - 和more类似，功能更强大
