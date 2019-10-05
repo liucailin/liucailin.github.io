@@ -66,6 +66,8 @@ title: Linux Learn
     - -r 逆序显示
     - -t 按时间顺序显示，默认是按文件名
     - -R 递归显示
+    - -h 文件大小以人类易读的形式显示
+    - -d 只显示文件夹自身
 
     `ls -l / /root` -> 长格式显示根目录和root用户home下的文件
 
@@ -106,6 +108,40 @@ title: Linux Learn
 
     - `*` 匹配任何字符串
     - `?` 匹配一个字符串
+
+- 文本查看
+
+    - cat
+    - head
+    - tail
+        - -f 文件内容更新后，同步更新
+    - wc
+    - more
+    - less
+
+- tar       打包命令
+
+    常用参数：
+    - -c 打包
+    - -x 解包
+    - -f 指定文件
+    - -z gzip格式压缩和解压缩
+    - -j bzip2格式压缩和解压缩
+
+    - `tar cf etc-bak.tar /etc`       -> 打包配置文件
+    - `tar czf etc-bak.tar.gz /etc`   -> gzip压缩配置文件
+    - `tar cjf etc-bak.tar.bz2 /etc`  -> bzip2压缩配置文件
+    - `tar xzf etc-bak.tar.gz`        -> 解压缩gzip格式
+
+### VIM
+
+- 四种模式
+    - 正常模式(Normal-mode)
+    - 插入模式(Insert-mode)
+    - 命令模式(Command-mode)
+    - 可视模式(Visual-mode)
+
+### 用户管理
 
 
 
