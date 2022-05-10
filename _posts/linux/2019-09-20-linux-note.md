@@ -26,3 +26,9 @@ title: Linux Note
 - tail - View the bottom few lines of a file
 - more - View the whole file, one screenful at a time
 - less - 和more类似，功能更强大
+
+## VirtualBox CentOS7
+- 使用默认的网络连接，网络桥接需要配置，否则上不了网
+- ifup激活网卡
+- https://www.codetd.com/article/8792817
+- shutdown -h now 马上关机
